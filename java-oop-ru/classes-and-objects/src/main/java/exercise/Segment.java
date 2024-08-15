@@ -10,15 +10,15 @@ public class Segment {
         this.point2 = point2;
     }
 
-    public getBeginPoint() {
+    public Point getBeginPoint() {
         return point1;
     }
 
-    public getEndPoint() {
+    public Point getEndPoint() {
         return point2;
     }
 
-    public getMidPoint() {
+    public Point getMidPoint() {
         int midX = (point1.getX() + point2.getX()) / 2;
         int midY = (point1.getY() + point2.getY()) / 2;
         return new Point(midX, midY);
