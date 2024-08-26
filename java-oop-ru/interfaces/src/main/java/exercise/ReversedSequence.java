@@ -4,12 +4,28 @@ package exercise;
 public class ReversedSequence implements CharSequence {
     private String str;
 
-    public int getStr() {
+    public String getStr() {
         return str;
     }
 
     public ReversedSequence(String str) {
         this.str = new StringBuilder(str).reverse().toString();
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+        if (start < 0) {
+            throw new IndexOutOfBoundsException("Start index cannot be negative");
+        }
+        if (end > value.length) {
+            throw new IndexOutOfBoundsException("End index cannot be greater than the length of the string");
+        }
+        if (start > end) {
+            throw new IndexOutOfBoundsException("Start index cannot be greater than end index");
+        }
+
+        int subLen = end - start;
+        return ((start == 0) && (end == value.length)) ? this : new String(value, start, subLen);
     }
 }
 // END
