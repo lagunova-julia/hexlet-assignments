@@ -17,7 +17,7 @@ public class ReversedSequence implements CharSequence {
         if (start < 0) {
             throw new IndexOutOfBoundsException("Start index cannot be negative");
         }
-        if (end > value.length) {
+        if (end > this.length) {
             throw new IndexOutOfBoundsException("End index cannot be greater than the length of the string");
         }
         if (start > end) {
@@ -25,7 +25,7 @@ public class ReversedSequence implements CharSequence {
         }
 
         int subLen = end - start;
-        return ((start == 0) && (end == value.length)) ? this : new String(value, start, subLen);
+        return ((start == 0) && (end == this.length)) ? this : new String(this.substring(start, subLen));
     }
 }
 // END
