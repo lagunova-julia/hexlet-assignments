@@ -28,7 +28,8 @@ public class Cottage implements Home {
         if (this.getArea() == anotherHome.getArea()) {
             return 0;
         }
-        this.getArea() > anotherHome.getArea() ? return 1 : return -1;
+        int result = (this.getArea() > anotherHome.getArea()) ? 1 : -1;
+        return result;
     }
 }
 // END
