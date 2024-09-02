@@ -3,13 +3,25 @@ package exercise;
 // BEGIN
 public class ReversedSequence implements CharSequence {
     private String str;
+    private int length;
 
     public String getStr() {
         return str;
     }
 
+    @Override
+    public int length() {
+        return length;
+    }
+
+    @Override
+    public char charAt(int index) {
+        return str.charAt(index);
+    }
+
     public ReversedSequence(String str) {
         this.str = new StringBuilder(str).reverse().toString();
+        this.length = this.str.length();
     }
 
     @Override
@@ -25,7 +37,7 @@ public class ReversedSequence implements CharSequence {
         }
 
         int subLen = end - start;
-        return ((start == 0) && (end == this.length)) ? this : new String(this.substring(start, subLen));
+        return ((start == 0) && (end == this.length)) ? this : new String(this.str.substring(start, subLen));
     }
 }
 // END
