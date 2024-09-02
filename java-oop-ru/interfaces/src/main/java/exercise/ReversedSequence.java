@@ -5,7 +5,8 @@ public class ReversedSequence implements CharSequence {
     private String str;
     private int length;
 
-    public String getStr() {
+    @Override
+    public String toString() {
         return str;
     }
 
@@ -36,8 +37,7 @@ public class ReversedSequence implements CharSequence {
             throw new IndexOutOfBoundsException("Start index cannot be greater than end index");
         }
 
-        int subLen = end - start;
-        return ((start == 0) && (end == this.length)) ? this : new String(this.str.substring(start, subLen));
+        return ((start == 0) && (end == this.length)) ? this : new String(this.str.substring(start, end));
     }
 }
 // END
