@@ -40,5 +40,6 @@ class FileKVTest {
         assertThat(storage.get("value3", "def")).isEqualTo("def");
         assertThat(storage.toMap()).isEqualTo(Map.of("value2", "key2"));
     }
+
     // END
 }
