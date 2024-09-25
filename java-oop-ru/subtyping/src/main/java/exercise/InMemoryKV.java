@@ -19,7 +19,7 @@ public class InMemoryKV implements KeyValueStorage {
     }
 
     public String get(String key, String defaultValue) {
-        memory.getOrDefault(key, defaultValue);
+        return memory.getOrDefault(key, defaultValue);
     }
 
     public Map<String, String> toMap() {
