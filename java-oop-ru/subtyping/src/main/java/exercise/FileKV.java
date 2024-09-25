@@ -5,9 +5,11 @@ import java.util.Map;
 // BEGIN
 public class FileKV implements KeyValueStorage {
     private Map<String, String> memory;
+    private String path;
 
     public FileKV(String path, Map<String, String> memory) {
         this.memory = memory;
+        this.path = path;
         var content = Utils.serialize(memory);
         Utils.writeFile(path, content);
     }
