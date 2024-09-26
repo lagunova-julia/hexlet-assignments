@@ -12,7 +12,7 @@ public class App {
         var entries = originalMap.entrySet();
         for (var entry : entries) {
             var key = entry.getKey(); // get key
-            var value = entry.get(key); // get value
+            var value = entry.getValue(); // get value
             swappedStorage.put(value, key);
         }
     }
