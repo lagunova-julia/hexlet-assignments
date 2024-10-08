@@ -1,5 +1,6 @@
 package exercise;
 
+import java.util.HashMap;
 import java.util.Map;
 
 // BEGIN
@@ -7,7 +8,7 @@ public class InMemoryKV implements KeyValueStorage {
     private Map<String, String> memory;
 
     public InMemoryKV(Map<String, String> memory) {
-        this.memory = memory;
+        this.memory = new HashMap<>(memory);
     }
 
     public void set(String key, String value) {
