@@ -15,6 +15,12 @@ public class App {
             var value = entry.getValue();
             swappedStorage.put(value, key);
         }
+
+        if (storage instanceof InMemoryKV) {
+            storage = new InMemoryKV(swappedStorage);
+        } else {
+            storage = new FileKV("src/test/resources/file", swappedStorage);
+        }
     }
 }
 // END
