@@ -11,8 +11,8 @@ public class App {
 
         var entries = originalMap.entrySet();
         for (var entry : entries) {
-            var key = entry.getKey(); // get key
-            var value = entry.getValue(); // get value
+            var key = entry.getKey();
+            var value = entry.getValue();
             swappedStorage.put(value, key);
         }
     }

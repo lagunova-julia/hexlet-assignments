@@ -1,7 +1,13 @@
-package exercise;
+package java.exercise;
 
+
+import exercise.App;
+import exercise.InMemoryKV;
+import exercise.KeyValueStorage;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Map;
 
 
@@ -12,9 +18,9 @@ class AppTest {
         storage.set("key2", "value2");
         App.swapKeyValue(storage);
 
-        assertThat(storage.get("key3", "default")).isEqualTo("default");
-        assertThat(storage.get("value", "")).isEqualTo("key");
-        assertThat(storage.get("value2", "")).isEqualTo("key2");
+        assertEquals(storage.get("key3", "default"), "default");
+        assertEquals(storage.get("value", ""), "key");
+        assertEquals(storage.get("value2", ""), "key2");
     }
 
     @Test
@@ -22,6 +28,6 @@ class AppTest {
         KeyValueStorage storage = new InMemoryKV(Map.of("foo", "bar", "bar", "zoo"));
         App.swapKeyValue(storage);
         Map<String, String> expected = Map.of("bar", "foo", "zoo", "bar");
-        assertThat(storage.toMap()).isEqualTo(expected);
+        assertEquals(storage.toMap(), expected);
     }
 }
