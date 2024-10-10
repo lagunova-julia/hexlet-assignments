@@ -1,9 +1,5 @@
 package exercise;
 
-
-import exercise.App;
-import exercise.InMemoryKV;
-import exercise.KeyValueStorage;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
