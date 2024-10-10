@@ -1,4 +1,4 @@
-package java.exercise;
+package exercise;
 
 
 import exercise.App;
@@ -29,7 +29,4 @@ class AppTest {
         Map<String, String> expected = Map.of("bar", "foo", "zoo", "bar");
         assertEquals(storage.toMap(), expected);
     }
-
-    //expected: {"bar"="foo", "zoo"="bar"}
-    //  but was : {"bar"="zoo", "foo"="bar"}
 }
