@@ -34,14 +34,14 @@ class FileKVTest {
         assertThat(storage.get("key", "default")).isEqualTo("value");
 
         storage.set("key2", "value2");
-        storage.set("key", "value3");
+        storage.set("key", "value");
 
-        assertThat(storage.get("value2", "default")).isEqualTo("key2");
-        assertThat(storage.get("value3", "default")).isEqualTo("key");
+        assertThat(storage.get("key2", "default")).isEqualTo("value2");
+        assertThat(storage.get("key", "default")).isEqualTo("value");
 
-        storage.unset("value3");
-        assertThat(storage.get("value3", "def")).isEqualTo("def");
-        assertThat(storage.toMap()).isEqualTo(Map.of("value2", "key2"));
+        storage.unset("key");
+        assertThat(storage.get("key", "def")).isEqualTo("def");
+        assertThat(storage.toMap()).isEqualTo(Map.of("key2", "value2"));
     }
 
     // END
