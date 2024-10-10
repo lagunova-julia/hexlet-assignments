@@ -27,7 +27,7 @@ class Utils {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, String> data = new HashMap<>();
         try {
-            data = mapper.readValue(json, new TypeReference<Map<String, String>>(){});
+            data = mapper.readValue(json, new TypeReference<Map<String, String>>(){ });
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
