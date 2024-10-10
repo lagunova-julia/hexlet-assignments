@@ -9,10 +9,9 @@ public class App {
         Map<String, String> originalMap = storage.toMap();
         Map<String, String> swappedStorage = new HashMap<>();
 
-        var entries = originalMap.entrySet();
-        for (var entry : entries) {
-            var key = entry.getKey();
-            var value = entry.getValue();
+        for (Map.Entry<String, String> entry : originalMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
             swappedStorage.put(value, key);
         }
 
