@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 class Utils {
     public static String serialize(Map<String, String> map) {
@@ -26,7 +27,7 @@ class Utils {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, String> data = new HashMap<>();
         try {
-            data = mapper.readValue(json, Map.class);
+            data = mapper.readValue(json, new TypeReference<Map<String, String>>(){});
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
