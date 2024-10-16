@@ -12,7 +12,7 @@ public class LabelTag implements TagInterface {
 
     @Override
     public String render() {
-        return "<label>" + type + value + "</label>";
+        return "<label>" + type + value.render() + "</label>";
     }
 }
 // END
