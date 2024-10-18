@@ -32,7 +32,11 @@ public class PairedTag extends Tag {
             result2.append(tag.toString());
         }
 
-        return String.format("<%s %s>%s%s</%s>", getName(), result.toString().trim(), body, result2, getName());
+        if (!result.isEmpty()) {
+            return String.format("<%s %s>%s%s</%s>", getName(), result.toString().trim(), body, result2, getName());
+        } else {
+            return String.format("<%s>%s%s</%s>", getName(), body, result2, getName());
+        }
     }
 }
 // END

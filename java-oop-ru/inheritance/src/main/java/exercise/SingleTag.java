@@ -17,7 +17,11 @@ public class SingleTag extends Tag {
         for (Map.Entry<String, String> entry : attributes.entrySet()) {
             result.append(String.format("%s=\"%s\" ", entry.getKey(), entry.getValue()));
         }
-        return String.format("<%s %s>", getName(), result.toString().trim());
+        if (!result.isEmpty()) {
+            return String.format("<%s %s>", getName(), result.toString().trim());
+        } else {
+            return String.format("<%s>", getName());
+        }
     }
 }
 // END
