@@ -13,12 +13,11 @@ public class SingleTag extends Tag {
 
     public String toString() {
         Map<String, String> attributes = getAttribute();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Map.Entry<String, String> entry : attributes.entrySet()) {
-            result += String.format(entry.getKey() + ": %s ", entry.getValue());
+            result.append(String.format("%s=\"%s\" ", entry.getKey(), entry.getValue()));
         }
-
-        return ("<" + getName() + " " + result).trim() + ">";
+        return String.format("<%s %s>", getName(), result.toString().trim());
     }
 }
 // END

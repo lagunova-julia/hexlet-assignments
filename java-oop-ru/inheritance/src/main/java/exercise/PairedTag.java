@@ -21,19 +21,18 @@ public class PairedTag extends Tag {
 
     public String toString() {
         Map<String, String> attributes = getAttribute();
-        String result = "";
+
+        StringBuilder result = new StringBuilder();
         for (Map.Entry<String, String> entry : attributes.entrySet()) {
-            result += String.format(entry.getKey() + ": %s ", entry.getValue());
-        }
-        String result2 = "";
-        if (tags != null) {
-            for (int i = 0; i < tags.size(); i++) {
-                result2 += tags.get(i).toString();
-            }
+            result.append(String.format("%s=\"%s\" ", entry.getKey(), entry.getValue()));
         }
 
-        return ("<" + getName() + " " + result).trim() + ">"
-                + body + result2 + "</" + getName() + ">";
+        StringBuilder result2 = new StringBuilder();
+        for (Tag tag : tags) {
+            result2.append(tag.toString());
+        }
+
+        return String.format("<%s %s>%s%s</%s>", getName(), result.toString().trim(), body, result2, getName());
     }
 }
 // END
