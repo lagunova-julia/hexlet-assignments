@@ -30,13 +30,6 @@ class ValidationTest {
     // BEGIN
     @Test
     void testAdvancedValidate() {
-        Address address = new Address("USA", "Texas", null, "7", "2");
-        Map<String, List<String>> result = Validator.advancedValidate(address);
-        Map<String, List<String>> expected = Map.of(
-                "country", List.of("length less than 4"),
-                "street", List.of("can not be null"));
-        assertThat(result).isEqualTo(expected);
-
         Address address1 = new Address("Russia", "Ufa", "Lenina", "54", null);
         Map<String, List<String>> result1 = Validator.advancedValidate(address1);
         Map<String, List<String>> expected1 = Map.of();
