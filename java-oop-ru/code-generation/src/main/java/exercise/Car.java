@@ -1,6 +1,7 @@
 package exercise;
 
 import lombok.Value;
+import lombok.SneakyThrows;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // BEGIN
