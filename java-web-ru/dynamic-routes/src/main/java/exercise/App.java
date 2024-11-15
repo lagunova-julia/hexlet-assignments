@@ -20,13 +20,13 @@ public final class App {
 
         // BEGIN
         app.get("/companies/{id}", ctx -> {
-            var companyNumber = ctx.pathParamAsClass("id", Integer.class).getOrDefault(1);
+            var id = ctx.pathParam("id");
 
-            if (companyNumber >= COMPANIES.size() || companyNumber < 0) {
-                throw new NotFoundResponse("Company not found");
-            }
+            Map<String, String> company = COMPANIES.stream()
+                    .filter(c -> c.get("id").equals(id))
+                    .findFirst()
+                    .orElseThrow(() -> new NotFoundResponse("Company not found"));
 
-            var company = COMPANIES.get(companyNumber);
             ctx.json(company);
         });
         // END
