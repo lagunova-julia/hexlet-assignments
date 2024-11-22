@@ -3,18 +3,21 @@
 
     <html>
         <head>
-            <title>Хекслет</title>
+            <title>Пользователи</title>
         </head>
         <body>
-            <h1>${page.getHeader()}</h1>
-            @if(page.getUsers().isEmpty())
-                <p>Пока не добавлено ни одного курса</p>
-            @else
+            <h1>Пользователи</h1>
+            <table class="table table-striped">
                 @for(var user : page.getUsers())
-                   <div>
-                       <h2><a href="/users/${user.getId()}">${user.getName()}</a></h2>
-                   </div>
+                    <tr>
+                        <td>
+                            ${user.getId()}
+                        </td>
+                        <td>
+                            <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
+                        </td>
+                    </tr>
                 @endfor
-            @endif
+            </table>
         </body>
     </html>

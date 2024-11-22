@@ -22,26 +22,24 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users", ctx -> {
-            var header = "Список пользователей";
-            var page = new UsersPage(USERS, header);
-            ctx.render("users/index.jte", model("page", page));
+        app.get("/users/{id}", ctx -> {
+            var id = ctx.pathParamAsClass("id", Long.class).get();
+
+            User user = USERS.stream()
+                    .filter(u -> id.equals(u.getId()))
+                    .findFirst()
+                    .orElse(null);
+
+            if (user == null) {
+                throw new NotFoundResponse("User not found");
+            }
+
+            var page = new UserPage(user);
+            ctx.render("users/show.jte", model("page", page));
         });
 
-        app.get("/users/{id}", ctx -> {
-            app.get("/companies/{id}", ctx -> {
-                var id = ctx.pathParam("id");
-
-                User user = USERS.stream()
-                        .filter(c -> Long.valueOf(c.getId()).equals(id))
-                        .findFirst()
-                        .orElseThrow(() -> new NotFoundResponse("Company not found"));
-
-                ctx.json(user);
-            });
-            var user = ctx.pathParam("id");
-            var header = "Пользователь";
-            var page = new UserPage(user, header);
+        app.get("/users", ctx -> {
+            var page = new UsersPage(USERS);
             ctx.render("users/index.jte", model("page", page));
         });
         // END
