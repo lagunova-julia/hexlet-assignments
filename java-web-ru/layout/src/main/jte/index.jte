@@ -1,5 +1,4 @@
 @template.layout.page(
-    page = welcomePage,
     content = @`
         <h2>Welcome to Hexlet!</h2>
     `,
