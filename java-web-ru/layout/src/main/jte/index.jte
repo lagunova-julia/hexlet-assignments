@@ -1,7 +1,7 @@
 @template.layout.page(
     page = welcomePage,
     content = @`
-        <p>Welcome to Hexlet!</p>
+        <h1>Welcome to Hexlet!</h1>
     `,
     footer = @`
         <p>Thanks for visiting, come again soon!</p>
