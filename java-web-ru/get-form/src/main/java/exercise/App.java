@@ -6,7 +6,6 @@ import exercise.model.User;
 import exercise.dto.users.UsersPage;
 import static io.javalin.rendering.template.TemplateUtil.model;
 
-import io.javalin.http.NotFoundResponse;
 import io.javalin.rendering.template.JavalinJte;
 
 public final class App {
