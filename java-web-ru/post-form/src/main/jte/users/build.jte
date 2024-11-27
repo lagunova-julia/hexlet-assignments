@@ -1,8 +1,14 @@
 <form action="/users" method="post">
   <div>
     <label>
-      Имя
-      <input type="text" name="name" />
+      First name
+      <input type="text" name="first name" />
+    </label>
+  </div>
+  <div>
+    <label>
+        Last name
+        <input type="text" name="last name" />
     </label>
   </div>
   <div>
@@ -13,15 +19,9 @@
   </div>
   <div>
     <label>
-      Пароль
+      Password
       <input type="password" required name="password" />
     </label>
   </div>
-  <div>
-    <label>
-      Подтверждение пароля
-      <input type="password" required name="passwordConfirmation" />
-    </label>
-  </div>
-  <input type="submit" value="Зарегистрировать" />
+  <input type="submit" value="Register" />
 </form>
