@@ -21,7 +21,4 @@
             <input type="submit" value="Search" />
         </form>
     `,
-    footer = @`
-        <p>Thanks for visiting, come again soon!</p>
-    `
 )
