@@ -5,6 +5,8 @@ import java.util.List;
 import exercise.model.User;
 import exercise.dto.users.UsersPage;
 import static io.javalin.rendering.template.TemplateUtil.model;
+
+import io.javalin.http.NotFoundResponse;
 import io.javalin.rendering.template.JavalinJte;
 
 public final class App {
@@ -21,7 +23,6 @@ public final class App {
 
         // BEGIN
         app.get("/users", ctx -> {
-            var userNumber = ctx.pathParamAsClass("id", Integer.class);
             var term = ctx.queryParam("term");
             List<User> filteredUsers;
 
