@@ -19,10 +19,10 @@
       </label>
     </div>
     <div>
-      <label>
-        Email
-        <input type="textarea" required name="content" value="${page.getContent()}" />
-      </label>
+      <textarea>
+        Content
+        <input type="text" required name="content" value="${page.getContent()}" />
+      </textarea>
     </div>
     <input type="submit" value="Create" />
   </form>
