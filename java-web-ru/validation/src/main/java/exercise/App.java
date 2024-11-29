@@ -54,7 +54,7 @@ public final class App {
                 var content = ctx.formParam("content");
                 var page = new BuildArticlePage(title, content, e.getErrors());
                 ctx.status(422);
-                ctx.render("users/build.jte", model("page", page));
+                ctx.render("articles/build.jte", model("page", page));
             }
         });
         // END
