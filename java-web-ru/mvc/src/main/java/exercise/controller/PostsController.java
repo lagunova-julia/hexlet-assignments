@@ -62,7 +62,7 @@ public class PostsController {
         var id = ctx.pathParamAsClass("id", Long.class).get();
         var post = PostRepository.find(id)
                 .orElseThrow(() -> new NotFoundResponse("Post not found"));
-        var page = new PostPage(post);
+        var page = new EditPostPage(id, post.getName(), post.getBody(), null);
         ctx.render("posts/edit.jte", model("page", page));
     }
 
