@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class EditPostPage {
+    private long id;
     private String name;
     private String body;
     private Map<String, List<ValidationError<Object>>> errors;
