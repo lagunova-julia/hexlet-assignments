@@ -1,40 +1,34 @@
-<!-- src/main/jte/posts/edit.jte -->
-<html>
-<head>
-    <title>Редактировать пост</title>
-</head>
-<body>
-    <h1>Редактировать пост</h1>
+@import exercise.dto.posts.EditPostPage
+@param EditPostPage page
 
-    <!-- Проверяем, есть ли ошибки валидации -->
-    <div>
-        <!-- Если есть ошибки, выводим их -->
-        <ul>
-            @for(error : errors) {
-                <li>${error}</li>
-            }
-        </ul>
-    </div>
+@template.layout.page(
+    content = @`
+        @if(page.getErrors() != null)
+            <div class="mb-3">
+                <ul>
+                    @for(var validator : page.getErrors().values())
+                        @for(var error : validator)
+                            <li>${error.getMessage()}</li>
+                        @endfor
+                    @endfor
+                </ul>
+            </div>
+        @endif
 
-    <!-- Форма редактирования поста -->
-    <form action="/posts/update/${post.id}" method="POST">
-        <div>
-            <label for="title">Заголовок:</label>
-            <input type="text" id="title" name="title" value="${post.title}" required />
+        <div class="mx-auto p-4 py-md-5">
+            <form action="/posts/${page.getId()}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">
+                        Название
+                        <input type="text" class="form-control" name="name" value="${page.getName()}" />
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Содержание</label>
+                    <textarea class="form-control" rows="20" cols="70" type="text" name="body">${page.getBody()}</textarea>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Обновить" />
+            </form>
         </div>
-
-        <div>
-            <label for="content">Содержимое:</label>
-            <textarea id="content" name="content" required>${post.content}</textarea>
-        </div>
-
-        <div>
-            <button type="submit">Сохранить изменения</button>
-        </div>
-    </form>
-
-    <div>
-        <a href="/posts">Назад к списку постов</a>
-    </div>
-</body>
-</html>
+    `
+)
