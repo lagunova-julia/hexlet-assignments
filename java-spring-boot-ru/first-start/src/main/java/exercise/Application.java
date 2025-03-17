@@ -18,5 +18,4 @@ public class Application {
         return "Welcome to Hexlet!";
     }
 }
-
 // END
