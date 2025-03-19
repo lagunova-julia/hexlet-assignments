@@ -22,8 +22,18 @@ public class Application {
                     e.printStackTrace();
                 }
 
+                var returnedType = method.getAnnotatedReturnType().toString();
+                String returned = "";
+                if (returnedType.contains("\\.")) {
+                    String[] arr = returnedType.split("\\.");
+                    returned = arr[arr.length - 1];
+                } else {
+                    returned = returnedType;
+                }
+
+
                 System.out.println("Method " + method.getName() + " returns a value of type "
-                                    + method.getAnnotatedReturnType());
+                                    + returned);
             }
         }
         // END
