@@ -68,11 +68,10 @@ public class Application {
             post.setId(data.getId());
             post.setTitle(data.getTitle());
             post.setBody(data.getBody());
-            ResponseEntity.status(200);
+            return ResponseEntity.ok(data);
         } else {
-            ResponseEntity.status(204);
+            return ResponseEntity.status(204).body(data);
         }
-        return ResponseEntity.ok(data);
     }
     // END
 
