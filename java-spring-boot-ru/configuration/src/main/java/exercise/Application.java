@@ -20,13 +20,13 @@ public class Application {
     // Все пользователи
     private List<User> users = Data.getUsers();
 
+    @Autowired
+    private UserProperties admins;
+
     // BEGIN
     @GetMapping("/admins")
     public List<String> indexAdmins() {
-        return users.stream()
-                .map(User::getName)
-                .sorted()
-                .toList();
+        return admins.getAdmins().stream().sorted().toList();
     }
     // END
 
