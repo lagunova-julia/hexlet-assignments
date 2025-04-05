@@ -23,25 +23,26 @@ public class PeopleController {
     @Autowired
     private PersonRepository personRepository;
 
-    @GetMapping(path = "/{id}")
+    @GetMapping("/{id}")
     public Person show(@PathVariable long id) {
         return personRepository.findById(id).get();
     }
 
     // BEGIN
-    @GetMapping(path = "/people")
+    @GetMapping("/people")
+    @ResponseStatus(HttpStatus.OK)
     public List<Person> index() {
         return personRepository.findAll();
     }
 
-    @PostMapping(path = "/people")
+    @PostMapping("/people")
     @ResponseStatus(HttpStatus.CREATED)
     public Person create(@RequestBody Person person) {
         personRepository.save(person);
         return person;
     }
 
-    @DeleteMapping(path = "/people/{id}")
+    @DeleteMapping("/people/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         personRepository.deleteById(id);
