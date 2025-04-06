@@ -46,7 +46,6 @@ public class ProductsController {
     }
 
     @PutMapping(path = "/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public Product update(@PathVariable Long id, @RequestBody Product data) {
         var maybeProduct = productRepository.findById(id);
         if (maybeProduct.isPresent()) {
