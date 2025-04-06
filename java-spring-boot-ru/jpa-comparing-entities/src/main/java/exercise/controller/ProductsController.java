@@ -33,6 +33,7 @@ public class ProductsController {
 
     // BEGIN
     @PostMapping(path = "")
+    @ResponseStatus(HttpStatus.CREATED)
     public Product create(@RequestBody Product product) {
         var maybeProduct = productRepository.findAll().stream()
                 .anyMatch(p1 -> p1.equals(product));
