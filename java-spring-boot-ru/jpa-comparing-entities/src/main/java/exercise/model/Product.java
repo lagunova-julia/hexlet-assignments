@@ -21,6 +21,6 @@ public class Product {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String title;
-    private String price;
+    private int price;
 }
 // END
