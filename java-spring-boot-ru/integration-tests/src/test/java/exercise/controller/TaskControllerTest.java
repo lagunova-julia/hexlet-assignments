@@ -87,7 +87,7 @@ class TaskControllerTest {
                 .create();
         taskRepository.save(task);
 
-        var request = post("/comments")
+        var request = post("/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(om.writeValueAsString(task));
 
