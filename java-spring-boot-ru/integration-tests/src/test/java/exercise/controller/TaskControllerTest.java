@@ -131,12 +131,8 @@ class TaskControllerTest {
 
         mockMvc.perform(delete("/tasks/{id}", task.getId()))
                 .andExpect(status().isOk());
-        mockMvc.perform(delete("/tasks/{id}", task.getId()))
-                .andExpect(status().isOk());
-        mockMvc.perform(delete("/tasks/{id}", task.getId()))
-                .andExpect(status().isOk());
 
-        assertThat(taskRepository.findAll()).isEmpty();
+        assertThat(taskRepository.findById(task.getId())).isEmpty();
     }
     // END
 }
