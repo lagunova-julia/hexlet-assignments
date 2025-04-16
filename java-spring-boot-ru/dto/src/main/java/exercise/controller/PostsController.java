@@ -39,6 +39,7 @@ public class PostsController {
         dto.setTitle(post.getTitle());
         dto.setBody(post.getBody());
         dto.setComments(commentRepository.findByPostId(post.getId()));
+        return dto;
     }
 
     @GetMapping(path = "/{id}")
