@@ -14,7 +14,7 @@ import exercise.model.Post;
 import exercise.repository.PostRepository;
 import exercise.exception.ResourceNotFoundException;
 import exercise.dto.PostDTO;
-import exercise.dto.CommentDTO;
+
 
 // BEGIN
 @RestController
