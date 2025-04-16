@@ -2,7 +2,6 @@ package exercise.dto;
 
 import java.util.List;
 
-import exercise.model.Comment;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +12,6 @@ public class PostDTO {
     private Long id;
     private String title;
     private String body;
-    private List<Comment> comments;
+    private List<CommentDTO> comments;
 }
 // END
