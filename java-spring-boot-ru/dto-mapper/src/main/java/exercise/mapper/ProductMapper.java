@@ -21,12 +21,12 @@ import org.mapstruct.ReportingPolicy;
 public abstract class ProductMapper {
     @Mapping(target = "name", source = "title")
     @Mapping(target = "cost", source = "price")
-    @Mapping(target = "barcode", source = "ventorCode")
+    @Mapping(target = "barcode", source = "vendorCode")
     public abstract Product map(ProductCreateDTO dto);
 
     @Mapping(target = "title", source = "name")
     @Mapping(target = "price", source = "cost")
-    @Mapping(target = "ventorCode", source = "barcode")
+    @Mapping(target = "vendorCode", source = "barcode")
     public abstract ProductDTO map(Product model);
 
     @Mapping(target = "cost", source = "price")
