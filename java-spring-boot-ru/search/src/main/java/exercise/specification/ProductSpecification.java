@@ -10,7 +10,11 @@ import exercise.model.Product;
 @Component
 public class ProductSpecification {
     public Specification<Product> build(ProductParamsDTO params) {
-        return
+        return withCategoryId(params.getCategoryId())
+                .and(withPriceGt(params.getPriceGt()))
+                .and(withPriceLt(params.getPriceLt()))
+                .and(withRatingGt(params.getRatingGt()))
+                .and(withTitleCont(params.getTitleCont()));
     }
 
     private Specification<Product> withCategoryId(Long categoryId) {
